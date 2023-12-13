@@ -8,9 +8,47 @@
     <title>Project: Library</title>
 </head>
 <body>
-    <p>...welcome to my library...</p>
-    <div id="bookcards-container">
-
+    <div class="header-container">
+        <p>...welcome to my library...</p>
+        <button class="add-book-button" value="addBook">+</button>
     </div>
+
+    <div class="main-container">
+        <div class="book-container">
+        </div>
+    </div>
+
+    <!--AddBook Modal Dialog-->
+    <dialog class="add-book-dialog">
+        <div class="input-container">
+            <form class="add-book-form" method="post">
+
+                <button value="cancel" formmethod="dialog">x</button>
+
+                <div class="title-input">
+                    <label for="title">Title: </label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="author-input">
+                    <label for="author">Author: </label>
+                    <input type="text" id="author" name="author" required>
+                </div>
+                <div class="pages-input">
+                    <label for="numPages">Number of Pages: </label>
+                    <input type="number" id="numPages" name="numPages" required>
+                </div>
+                <div class="read-status-input">
+                    <label for="read-status">Status: </label>
+                    <select>
+                        <option>Read</option>
+                        <option>Not Read</option>
+                    </select>
+                </div>
+
+                <button id="add-book-final" value="add-book-final">Add Book</button>
+            </form>
+        </div>
+    </dialog>
+
 </body>
 </html>
