@@ -10,7 +10,7 @@
 <body>
     <div class="header-container">
         <p>...welcome to my library...</p>
-        <button class="add-book-button" value="addBook">+</button>
+        <button class="open-modal" value="addBook">+</button>
     </div>
 
     <div class="main-container">
@@ -23,7 +23,7 @@
         <div class="input-container">
             <form class="add-book-form" method="post">
 
-                <button id="cancel-button" value="cancel" formmethod="dialog">x</button>
+                <button id="cancel-button" formmethod="dialog" formnovalidate>x</button>
 
                 <div class="title-input">
                     <label for="title">Title: </label>
@@ -39,13 +39,13 @@
                 </div>
                 <div class="read-status-input">
                     <label for="read-status">Status: </label>
-                    <select>
+                    <select id="read-status">
                         <option>Read</option>
                         <option>Not Read</option>
                     </select>
                 </div>
 
-                <button id="add-book-final" type="submit" value="add-book-final">Add Book</button>
+                <button id="add-book-button" type="submit" value="add-book-button" formmethod="post">Add Book</button>
             </form>
         </div>
     </dialog>
