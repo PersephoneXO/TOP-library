@@ -5,7 +5,7 @@ const closeModal=document.querySelector('#cancel-button');
 const modal=document.querySelector('.modal-container');
 const addBook=document.querySelector('#add-book-final');
 const addBookDialog=document.querySelector('#add-book-dialog');
-
+const addBookForm=document.querySelector('.add-book-form')
 
 //open add book modal
 openModal.addEventListener('click',()=>{
@@ -30,7 +30,13 @@ function Book(title,author,numPages,readStatus){
 }
 
 
+//take user input and store new book info
+function newBookInfo(){
+    addBookForm.addEventListener('submit',(e)=>{
+        e.preventDefault();
 
+    })
+}
 
 
 function addBookToLibrary(){
