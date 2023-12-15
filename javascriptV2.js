@@ -22,6 +22,10 @@ closeModal.addEventListener('click',(e)=>{
 bookContainer.addEventListener('click',(e)=>{
     if(e.target.classList.contains('delete-book-button')){
         let parentId=e.target.parentElement.id;
+        let parentBookContainer=document.getElementById(parentId);
+        myLibrary.splice(Number(parentId),1);
+        parentBookContainer.remove();
+        displayBooks();
     }
 });
 
