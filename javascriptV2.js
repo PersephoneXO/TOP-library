@@ -4,7 +4,7 @@ const openModal=document.querySelector('.open-modal');
 const closeModal=document.querySelector('#cancel-button');
 const addBookButton=document.querySelector('#add-book-button');
 const addBookForm=document.querySelector('.add-book-form');
-
+const bookContainer=document.querySelector('.book-container');
 
 
 
@@ -29,6 +29,7 @@ addBookButton.addEventListener('click',(e)=>{
     addBookToLibrary(newTitle,newAuthor,newNumPages,newReadStatus);
     addBookDialog.close();
     addBookForm.reset();
+    displayBooks();
 });
 
 
@@ -51,4 +52,51 @@ function addBookToLibrary(title,author,numPages,readStatus){
     myLibrary.push(newBook);
 }
 
-console.log(myLibrary);
+
+//display all books in myLibrary as a card
+function displayBooks(){
+    bookContainer.innerHTML="";
+
+    //loop through all books in the array
+    for(let i=0;i<myLibrary.length;i++){
+        let bookCard=document.createElement('div');
+        bookCard.classList.add('bookCard');
+        bookCard.id=i;
+        bookCard.appendChild(getTitle(myLibrary[i].title));
+        bookCard.appendChild(getAuthor(myLibrary[i].author));
+        bookCard.appendChild(getNumPages(myLibrary[i].numPages));
+        bookCard.appendChild(getReadStatus(myLibrary[i].readStatus));
+        bookContainer.appendChild(bookCard);
+    }
+    return bookContainer;
+};
+
+
+//helper functions for displayBooks()
+function getTitle(title){
+    const titleP=document.createElement('p');
+    titleP.textContent=title;
+    titleP.classList.add('card-title');
+    return titleP;
+}
+
+function getAuthor(author){
+    const authorP=document.createElement('p');
+    authorP.textContent=author;
+    authorP.classList.add('card-author');
+    return authorP;
+}
+
+function getNumPages(numPages){
+    const numPagesP=document.createElement('p');
+    numPagesP.textContent=numPages;
+    numPagesP.classList.add('card-num-pages');
+    return numPagesP;
+}
+
+function getReadStatus(readStatus){
+    const readStatusP=document.createElement('p');
+    readStatusP.textContent=readStatus;
+    readStatusP.classList.add('card-read-status');
+    return readStatusP;
+}
