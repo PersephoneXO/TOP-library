@@ -18,6 +18,14 @@ closeModal.addEventListener('click',(e)=>{
     addBookDialog.close();
 });
 
+//get id from parent div on deleteBook click
+bookContainer.addEventListener('click',(e)=>{
+    if(e.target.classList.contains('delete-book-button')){
+        let parentId=e.target.parentElement.id;
+    }
+});
+
+
 
 //add book to myLibrary array if requirements are met
 addBookButton.addEventListener('click',(e)=>{
@@ -66,6 +74,7 @@ function displayBooks(){
         bookCard.appendChild(getAuthor(myLibrary[i].author));
         bookCard.appendChild(getNumPages(myLibrary[i].numPages));
         bookCard.appendChild(getReadStatus(myLibrary[i].readStatus));
+        bookCard.appendChild(createDeleteBookButton());
         bookContainer.appendChild(bookCard);
     }
     return bookContainer;
@@ -99,4 +108,11 @@ function getReadStatus(readStatus){
     readStatusP.textContent=readStatus;
     readStatusP.classList.add('card-read-status');
     return readStatusP;
+}
+
+function createDeleteBookButton(){
+    const deleteBookButton=document.createElement('button');
+    deleteBookButton.textContent='x';
+    deleteBookButton.classList.add('delete-book-button');
+    return deleteBookButton;
 }
