@@ -18,7 +18,7 @@ closeModal.addEventListener('click',(e)=>{
     addBookDialog.close();
 });
 
-//get id from parent div on deleteBook click
+//on button click, remove selected book from the myLibrary array and update accordingly
 bookContainer.addEventListener('click',(e)=>{
     if(e.target.classList.contains('delete-book-button')){
         let parentId=e.target.parentElement.id;
@@ -28,6 +28,25 @@ bookContainer.addEventListener('click',(e)=>{
         displayBooks();
     }
 });
+
+//on button click, toggle the selected book's read status
+bookContainer.addEventListener('click',(e)=>{
+    if(e.target.classList.contains('status-toggle-button')){
+        let parentId=e.target.parentElement.id;
+        let selectedBook=myLibrary[Number(parentId)];
+        let parentBookContainer=document.getElementById(parentId);
+        if(selectedBook.readStatus=='Read'){
+            selectedBook.readStatus='Not Read';
+        }else{
+            selectedBook.readStatus='Read';
+        }
+        parentBookContainer.remove();
+        displayBooks();
+    }
+});
+
+
+
 
 
 
@@ -79,6 +98,7 @@ function displayBooks(){
         bookCard.appendChild(getNumPages(myLibrary[i].numPages));
         bookCard.appendChild(getReadStatus(myLibrary[i].readStatus));
         bookCard.appendChild(createDeleteBookButton());
+        bookCard.appendChild(createStatusToggle());
         bookContainer.appendChild(bookCard);
     }
     return bookContainer;
@@ -119,4 +139,11 @@ function createDeleteBookButton(){
     deleteBookButton.textContent='x';
     deleteBookButton.classList.add('delete-book-button');
     return deleteBookButton;
+}
+
+function createStatusToggle(){
+    const statusToggleButton=document.createElement('button');
+    statusToggleButton.textContent='Toggle Read Status';
+    statusToggleButton.classList.add('status-toggle-button');
+    return statusToggleButton;
 }
