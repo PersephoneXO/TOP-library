@@ -31,3 +31,5 @@ Assignment
         (a) To facilitate this you will want to create the function that toggles a book’s read status on your Book prototype instance.
 
     NOTE: You’re not required to add any type of storage right now. You will have the option to come back to this project later on in the course.
+
+Bookshelf attribution: <a href="https://www.freepik.com/free-vector/realistic-supermarket-shelves_3796463.htm#query=bookshelf&position=3&from_view=search&track=sph&uuid=db841481-1e4b-4e8c-a30f-733cacbdad42">Image by macrovector</a> on Freepik
