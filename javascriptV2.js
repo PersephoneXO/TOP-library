@@ -51,16 +51,22 @@ bookContainer.addEventListener('click',(e)=>{
 
 
 //add book to myLibrary array if requirements are met
-addBookButton.addEventListener('click',(e)=>{
+addBookForm.addEventListener('submit',(e)=>{
     e.preventDefault();
     let newTitle=document.querySelector('#title').value;
     let newAuthor=document.querySelector('#author').value;
     let newNumPages=document.querySelector('#numPages').value;
     let newReadStatus=document.querySelector('#read-status').value;
+
+    if(newTitle.length<1||newAuthor.length<1||newNumPages.length<1){
+        alert('Please fill out all fields');
+    }
+    else{
     addBookToLibrary(newTitle,newAuthor,newNumPages,newReadStatus);
     addBookDialog.close();
     addBookForm.reset();
     displayBooks();
+    }
 });
 
 
